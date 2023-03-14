@@ -1,0 +1,33 @@
+{% extends 'userstores/base.html' %}
+
+
+{% block content %}
+
+<br><br><br>
+
+
+<h4>  Hello this is index , here you can see all stores </h4>
+
+<br><br><br>
+
+
+
+{% for store in stores %}
+
+
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="..." alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title"> {{store.name}}</h5>
+      <p class="card-text">{{store.description}} </p>
+      <a href="{% url 'storedetail' slug=store.slug %}" class="btn btn-primary">  Go to store </a>
+    </div>
+  </div>
+    
+{% endfor %}
+    
+
+
+    
+{% endblock content %}
+    

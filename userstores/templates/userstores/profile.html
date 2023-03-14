@@ -1,0 +1,34 @@
+{% extends 'userstores/base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+<br><br><br>
+
+<h1> Hello   {{user.username}}  this is your  profile </h1>
+
+
+
+{% if user_store %}
+
+<h3> Store Name : {{user_store.name}} </h3>
+
+<p>{{user_store.description}} </p>
+
+{% else %}
+
+<p>  Click here to create your store !  </p>
+    
+{% endif %}
+
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ productform|crispy }}
+    <input type="submit" value="Submit">
+  </form>
+
+    
+{% endblock content %}
+    
